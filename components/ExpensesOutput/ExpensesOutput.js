@@ -3,75 +3,19 @@ import { ExpensesList } from './ExpensesList';
 import { ExpensesSummary } from './ExpensesSummary';
 import { StyleSheet } from 'react-native';
 import { GeneralStyles } from '../../utils/styles';
+import { Text } from 'react-native';
 
-const DUMMY_EXPENSES = [
-  {
-    id: 'e1',
-    description: 'A pair of bear',
-    amount: 59.99,
-    date: new Date('2023-07-10'),
-  },
-  {
-    id: 'e2',
-    description: 'A pair of burgers',
-    amount: 15.99,
-    date: new Date('2023-07-11'),
-  },
-  {
-    id: 'e3',
-    description: 'Some ice cream',
-    amount: 3.11,
-    date: new Date('2023-07-12'),
-  },
-  {
-    id: 'e4',
-    description: 'GPT',
-    amount: 20,
-    date: new Date('2023-07-20'),
-  },
-  {
-    id: 'e5',
-    description: 'Polish',
-    amount: 2,
-    date: new Date('2023-07-20'),
-  },
-  {
-    id: 'e11',
-    description: 'A pair of bear',
-    amount: 59.99,
-    date: new Date('2023-07-10'),
-  },
-  {
-    id: 'e21',
-    description: 'A pair of burgers',
-    amount: 15.99,
-    date: new Date('2023-07-11'),
-  },
-  {
-    id: 'e31',
-    description: 'Some ice cream',
-    amount: 3.11,
-    date: new Date('2023-07-12'),
-  },
-  {
-    id: 'e41',
-    description: 'GPT',
-    amount: 20,
-    date: new Date('2023-07-20'),
-  },
-  {
-    id: 'e51',
-    description: 'Polish',
-    amount: 2,
-    date: new Date('2023-07-20'),
-  },
-];
+export const ExpensesOutput = ({ expenses, period, fallbackText }) => {
+  let content = <Text style={styles.infoText}>{fallbackText}</Text>;
 
-export const ExpensesOutput = ({ expenses, period }) => {
+  if (expenses.length > 0) {
+    content = <ExpensesList expenses={expenses} />;
+  }
+
   return (
     <View style={styles.container}>
-      <ExpensesSummary expenses={DUMMY_EXPENSES} periodName={period} />
-      <ExpensesList expenses={DUMMY_EXPENSES} />
+      <ExpensesSummary expenses={expenses} periodName={period} />
+      {content}
     </View>
   );
 };
@@ -83,5 +27,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     paddingBottom: 0,
     backgroundColor: GeneralStyles.colors.primary700,
+  },
+  infoText: {
+    color: 'white',
+    fontSize: 16,
+    textAlign: 'center',
+    marginTop: 32,
   },
 });
