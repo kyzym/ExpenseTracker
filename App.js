@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
 import { IconButton } from './components/UI/IconButton';
 import { AllExpenses, ManageExpense, RecentExpenses } from './screens';
-import ExpensesContextProvider from './store/expenses-contes';
+import ExpensesContextProvider from './store/expenses-context';
 import { GeneralStyles } from './utils/styles';
 
 const Stack = createStackNavigator();
