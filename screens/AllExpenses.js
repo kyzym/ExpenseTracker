@@ -1,6 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { ExpensesOutput } from '../components/ExpensesOutput/ExpensesOutput';
 import { useContext } from 'react';
+import { ExpensesOutput } from '../components';
 import { ExpensesContext } from '../store/expenses-context';
 
 export const AllExpenses = () => {

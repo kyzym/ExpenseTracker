@@ -1,3 +1,3 @@
-export * from './AllExpenses';
-export * from './ManageExpense';
-export * from './RecentExpenses';
+export * from './AllExpenses.js';
+export * from './ManageExpense.js';
+export * from './RecentExpenses.js';
