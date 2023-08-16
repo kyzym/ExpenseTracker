@@ -3,7 +3,7 @@ import { GeneralStyles } from '../../utils/styles';
 
 export const ExpensesSummary = ({ expenses, periodName }) => {
   const expensesSum = expenses
-    .reduce((sum, expense) => {
+    ?.reduce((sum, expense) => {
       return sum + expense.amount;
     }, 0)
     .toFixed(2);
